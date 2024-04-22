@@ -45,17 +45,16 @@ public class MainActivity extends AppCompatActivity {
         tvDescription.setText(user.description);
         btnfollow.setText("Follow");
 
-        final boolean[] followed = {false};
         btnfollow.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if (!followed[0]){
+                if (user.followed){
                     btnfollow.setText("Follow");
-                    followed[0] = true;
+                    user.followed = false;
                 }
-                else if (followed[0]){
+                else if (!user.followed){
                     btnfollow.setText("Unfollow");
-                    followed[0] = false;
+                    user.followed = true;
                 }
             }
         });
